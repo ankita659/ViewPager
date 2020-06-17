@@ -12,6 +12,8 @@ import androidx.viewpager.widget.PagerAdapter;
 
 import com.example.viewpager.R;
 import com.example.viewpager.slider_pager.Model_Slide;
+import com.example.viewpager.utils.Appconstant;
+
 
 import java.util.ArrayList;
 
@@ -32,8 +34,16 @@ public class SliderAdapter extends PagerAdapter {
         View view=layoutInflater.inflate(R.layout.item_layout_slider,null);
         ImageView slideimg=view.findViewById(R.id.imageview_slider);
         TextView title=view.findViewById(R.id.textView_title);
+        if(Appconstant.flavourtype.equalsIgnoreCase("QA"))
+        {
+            title.setText("QA");
+        }
+        else if(Appconstant.flavourtype.equalsIgnoreCase("Prod"))
+        {
+            title.setText("Prod");
+        }
         slideimg.setImageResource(mList.get(position).getImage());
-        title.setText(mList.get(position).getTitle());
+//        title.setText(mList.get(position).getTitle());
         container.addView(view);
         return view;
 
